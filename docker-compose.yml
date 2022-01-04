@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nest:
+    container_name: nest
+    build: 
+      context: ./docker
+    working_dir: /usr/src/app
+    tty: true
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - 3001:3001
+    command: sh -c 'yarn install && yarn start:dev'
