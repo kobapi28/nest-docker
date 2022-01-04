@@ -3,6 +3,8 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Hello World!';
+    // .envファイルを読み込むサンプル
+    // MSG=hoge ならば、hogeがreturnされる
+    return process.env.MSG;
   }
 }
